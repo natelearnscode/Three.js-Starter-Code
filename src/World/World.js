@@ -5,6 +5,7 @@ import { createScene } from './components/scene.js';
 
 import { createControls } from './systems/controls.js';
 import { createRenderer } from './systems/renderer.js';
+import { Resizer } from './systems/Resizer.js';
 import { Loop } from './systems/Loop.js';
 
 // These variables are module-scoped: we cannot access them
@@ -30,6 +31,8 @@ class World {
         loop.updatable.push(controls);
 
         scene.add(ambientLight, mainLight);
+
+        const resizer = new Resizer(container, camera, renderer);
     }
 
     // Run async tasks
